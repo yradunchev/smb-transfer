@@ -35,4 +35,4 @@ fi
 find ${LOG} -type f -mmin +4320 -delete
 
 ### Remove lock
-rm -f ${LCK}
+rm -r ${LCK}
