@@ -15,8 +15,8 @@ mkdir ${LCK} || exit 1
 [ -f ${DLS} ] && rm ${DLS}
 
 ### Get file list
-smbclient ${WIN} -A ${CRD} -E -c "cd ${RDR};ls" > ${DLS} 2>&1
-FLS=( $( sed -e :a -e '1,6d;$d;N;2,2ba' -e 'P;D' ${DLS} | cut -d' ' -f3 ) )
+smbclient ${WIN} -A ${CRD} -E -c "cd ${RDR};ls *.*" > ${DLS} 2>&1
+FLS=( $( sed -e :a -e '1,5d;$d;N;2,2ba' -e 'P;D' ${DLS} | cut -d' ' -f3 ) )
 
 ### Process files
 if [ ${#FLS[@]} -gt 0 ]; then
